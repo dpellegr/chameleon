@@ -843,7 +843,7 @@ export class Chameleon {
         port.onMessage.addListener(request => {
           console.log('received request: ' + JSON.stringify(request));
           browser.runtime.sendMessage(request).then(response => {
-            console.log(response);
+            port.postMessage(response);
           });
         });
       });
